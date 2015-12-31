@@ -5,7 +5,6 @@ namespace Bex\Behat\Magento2InitExtension\ServiceContainer;
 use Behat\Testwork\ServiceContainer\Extension;
 use Behat\Testwork\ServiceContainer\ExtensionManager;
 use Bex\Behat\Magento2InitExtension\ServiceContainer\Config;
-use Bex\Behat\Magento2InitExtension\ServiceContainer\ConfigValidator;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

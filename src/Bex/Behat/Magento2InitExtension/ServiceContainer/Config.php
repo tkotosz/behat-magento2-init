@@ -19,6 +19,9 @@ class Config
         $this->magentoConfigs = $config[self::CONFIG_KEY_MAGENTO_CONFIGS];
     }
 
+    /**
+     * @return array
+     */
     public function getRequiredMagentoConfig()
     {
         return $this->magentoConfigs;

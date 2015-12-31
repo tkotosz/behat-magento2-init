@@ -1,7 +1,7 @@
 {
     "name": "bex/behat-magento2-init",
     "type": "library",
-    "description": "Provide access to magento2 object manager for behat",
+    "description": "Provides access to magento2 object manager from behat and allows to change magento config settings temporarly",
     "keywords": ["tdd","bdd","behat","magento2"],
     "homepage": "https://github.com/tkotosz/behat-magento2-init",
     "license": "MIT",
