@@ -95,7 +95,7 @@ class MagentoConfigManager extends BaseFixture
     {
         $originalValue = $this->configReader->getValue($path, $scopeType, $scopeCode);
         $this->storeOrigConfig($path, $originalValue, $scopeType, $scopeCode);
-        $this->configWriter->save($path, $value, $scopeType, $this->getScopeIdByScopeCode($scopeCode));
+        $this->configWriter->save($path, $value, $scopeType, $this->getScopeIdByScopeCode($scopeType, $scopeCode));
     }
 
     /**
@@ -115,20 +115,42 @@ class MagentoConfigManager extends BaseFixture
     }
 
     /**
+     * @param  string $scopeType
      * @param  string $scopeCode
      *
-     * @return int
+     * @return array
      */
-    private function getScopeIdByScopeCode($scopeCode)
+    private function getScopeIdByScopeCode($scopeType, $scopeCode)
     {
         $scopeId = 0;
 
-        $storesByCode = $this->storeManager->getStores(false, true);
-        if (isset($storesByCode[$scopeCode])) {
-            $store = $storesByCode[$scopeCode];
-            $scopeId = $store->getId();
+        $scopesByCode = $this->getScopesByCode($scopeType);
+
+        if (isset($scopesByCode[$scopeCode])) {
+            $scope = $scopesByCode[$scopeCode];
+            $scopeId = $scope->getId();
         }
 
         return $scopeId;
+    }
+
+    /**
+     * @param  string $scopeType
+     *
+     * @return array
+     */
+    private function getScopesByCode($scopeType)
+    {
+        $scopesByType = [];
+
+        if ($scopeType == 'stores') {
+            $scopesByType = $this->storeManager->getStores(false, true);
+        }
+
+        if ($scopeType == 'websites') {
+            $scopesByType = $this->storeManager->getWebsites(false, true);
+        }
+
+        return $scopesByType;
     }
 }
