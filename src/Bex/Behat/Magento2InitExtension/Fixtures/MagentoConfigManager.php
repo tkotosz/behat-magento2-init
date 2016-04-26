@@ -26,6 +26,11 @@ class MagentoConfigManager extends BaseFixture
     private $configWriter;
 
     /**
+     * @var StoreManagerInterface
+     */
+    private $storeManager;
+
+    /**
      * @var CacheInterface
      */
     private $cache;
