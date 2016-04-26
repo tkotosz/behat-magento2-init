@@ -45,6 +45,9 @@ class Magento2InitExtension implements Extension
     {
         $builder
             ->children()
+                ->scalarNode(Config::CONFIG_KEY_MAGENTO_BOOTSTRAP_PATH)
+                    ->defaultValue(getcwd() . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'bootstrap.php')
+                ->end()
                 ->arrayNode(Config::CONFIG_KEY_MAGENTO_CONFIGS)
                     ->prototype('array')
                         ->children()

@@ -6,6 +6,7 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Config\Storage\WriterInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\App\CacheInterface;
+use Magento\Store\Model\ScopeInterface;
 
 class MagentoConfigManager extends BaseFixture
 {
@@ -143,11 +144,11 @@ class MagentoConfigManager extends BaseFixture
     {
         $scopesByType = [];
 
-        if ($scopeType == 'stores') {
+        if ($scopeType == ScopeInterface::SCOPE_STORES) {
             $scopesByType = $this->storeManager->getStores(false, true);
         }
 
-        if ($scopeType == 'websites') {
+        if ($scopeType == ScopeInterface::SCOPE_WEBSITES) {
             $scopesByType = $this->storeManager->getWebsites(false, true);
         }
 
