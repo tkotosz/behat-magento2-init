@@ -23,6 +23,15 @@ default:
     Bex\Behat\Magento2InitExtension: ~
 ```
 
+You can configure the magento bootstrap file location like this:
+
+```yml
+default:
+  extensions:
+    Bex\Behat\Magento2InitExtension:
+      magento_bootstrap_path: /path/to/app/bootstrap.php
+```
+
 You can change magento config settings like this:
 ```yml
 default:
