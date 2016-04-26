@@ -1,5 +1,7 @@
 Behat-Magento2InitExtension
 =========================
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/tkotosz/behat-magento2-init/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/tkotosz/behat-magento2-init/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/tkotosz/behat-magento2-init/badges/build.png?b=master)](https://scrutinizer-ci.com/g/tkotosz/behat-magento2-init/build-status/master)
 
 Behat-Magento2InitExtension provides access to the magento2 object manager through the BaseFixture class and allows you to change magento config settings temporarly when Behat is running.
 
