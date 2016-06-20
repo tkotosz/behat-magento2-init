@@ -58,6 +58,15 @@ class MagentoConfigManager extends BaseFixture
     public function changeConfigs(array $configs)
     {
         foreach ($configs as $config) {
+            
+            if (!array_key_exists('scope_type', $config)) {
+                $config['scope_type'] = ScopeConfigInterface::SCOPE_TYPE_DEFAULT;
+            }
+
+            if (!array_key_exists('scope_code', $config)) {
+                $config['scope_code'] = null;
+            }            
+            
             if ($this->isValidConfig($config)) {
                 $this->changeConfig($config['path'], $config['value'], $config['scope_type'], $config['scope_code']);
             }
