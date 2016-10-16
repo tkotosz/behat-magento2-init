@@ -63,8 +63,7 @@ final class Magento2InitListener implements EventSubscriberInterface
         putenv('BEHAT_RUNNING=true');
 
         $bootstrap = Bootstrap::create(BP, $params);
-        $app = $bootstrap->createApplication('Magento\Framework\App\Http');
-        $app->launch();
+        $bootstrap->createApplication('Magento\Framework\App\Http');
         ObjectManager::getInstance();
 
         $this->magentoConfigManager = new MagentoConfigManager();

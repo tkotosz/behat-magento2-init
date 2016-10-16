@@ -4,7 +4,7 @@ namespace Bex\Behat\Magento2InitExtension\Fixtures;
 
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\App\State;
-use Magento\Framework\App\ObjectManager\ConfigLoader;
+use Magento\Framework\ObjectManager\ConfigLoaderInterface;
 use Magento\Framework\Registry;
 
 abstract class BaseFixture
@@ -41,7 +41,7 @@ abstract class BaseFixture
     private function initAppState()
     {
         $appState = $this->getMagentoObject(State::class);
-        $configLoader = $this->getMagentoObject(ConfigLoader::class);
+        $configLoader = $this->getMagentoObject(ConfigLoaderInterface::class);
         $registry = $this->getMagentoObject(Registry::class);
         
         try {
