@@ -68,6 +68,11 @@ final class Magento2InitListener implements EventSubscriberInterface
 
         $this->magentoConfigManager = new MagentoConfigManager();
         $this->magentoConfigManager->changeConfigs($this->config->getRequiredMagentoConfig());
+
+        // reinit magento to reload config
+        $bootstrap = Bootstrap::create(BP, $params);
+        $bootstrap->createApplication('Magento\Framework\App\Http');
+        ObjectManager::getInstance();
     }
 
     public function resetMagentoConfig()
